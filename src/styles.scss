@@ -1,0 +1,208 @@
+/* LUXURY DARK COMMERCE DESIGN SYSTEM */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --accent-gold: #F59E0B;
+  --accent-gold-light: #FCD34D;
+  --accent-primary: #F59E0B; /* Map primary back to gold for theme consistency */
+  --text-primary: #F5F5F5;
+  --text-muted: #94A3B8;
+  --border: rgba(255, 255, 255, 0.08);
+  --success: #10B981;
+  --danger: #EF4444;
+  --info: #3B82F6;
+  --gold-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  --smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.95)), url('https://www.transparenttextures.com/patterns/dark-matter.png'), var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-gold-light); }
+
+/* GLASSMORPHISM */
+.glass-card, .card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  transition: var(--smooth);
+}
+
+.glass-card:hover, .card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(245, 158, 11, 0.15);
+}
+
+/* BUTTONS */
+.btn-gold, .btn-primary {
+  background: var(--gold-gradient);
+  color: #000;
+  border: none;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: var(--smooth);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-gold:hover, .btn-primary:hover {
+  transform: scale(1.02) translateY(-2px);
+  box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4);
+  color: #000;
+}
+
+.btn-outline-gold, .btn-outline-primary {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  padding: 11px 23px;
+  border-radius: 8px;
+  transition: var(--smooth);
+}
+
+.btn-outline-gold:hover, .btn-outline-primary:hover {
+  background: rgba(245, 158, 11, 0.05);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+/* FORMS */
+.form-control-dark, .form-control {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text-primary) !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  border-radius: 8px;
+  padding: 12px;
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  caret-color: var(--accent-gold);
+}
+
+.form-control-dark:focus, .form-control:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);
+  color: var(--text-primary) !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* Fix Bootstrap autocomplete/autofill overriding text color */
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-primary) !important;
+  -webkit-box-shadow: 0 0 0 1000px #1a1a1a inset !important;
+  caret-color: var(--accent-gold);
+}
+
+/* Fix placeholder visibility */
+.form-control::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.6;
+}
+
+/* SKELETON ANIMATION */
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1A1A1A 25%, #2A2A2A 50%, #1A1A1A 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* FIXING BOOTSTRAP OVERRIDES */
+.text-muted { color: var(--text-muted) !important; }
+.dropdown-menu { background: #111 !important; border: 1px solid var(--border) !important; }
+.dropdown-item { color: white !important; }
+.dropdown-item:hover { background: var(--accent-gold) !important; color: black !important; }
+
+/* SweetAlert2 Luxury Theme Override */
+.swal2-popup {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+.swal2-title, .swal2-html-container {
+  color: #fff !important;
+}
+.swal2-success-circular-line-left, .swal2-success-circular-line-right, .swal2-success-fix {
+  background-color: transparent !important;
+}
+.swal2-timer-progress-bar {
+  background: var(--accent-gold) !important;
+}
+
+/* MERCHANT MODE OVERRIDES */
+.merchant-mode {
+  --accent-gold: #fbbf24;
+  --bg-primary: #0f172a;
+  --bg-secondary: #020617;
+  
+  .glass-card {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(251, 191, 36, 0.1);
+  }
+
+  .nav-link.active {
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+  }
+
+  .btn-gold {
+     background: linear-gradient(135deg, #fbbf24 0%, #b45309 100%);
+     color: #000;
+  }
+}
+
+.merchant-container {
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
