@@ -23,8 +23,8 @@ export const appConfig: ApplicationConfig = {
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          allowedDomains: ['localhost:5000'],
-          disallowedRoutes: ['http://localhost:5000/api/auth/login'],
+          allowedDomains: ['eshoppingzone-online-ecommerce-platform.onrender.com'],
+          disallowedRoutes: ['https://eshoppingzone-online-ecommerce-platform.onrender.com/api/auth/login'],
         },
       })
     )
